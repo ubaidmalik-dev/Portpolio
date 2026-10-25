@@ -1,35 +1,31 @@
-# Malik’s Digital Solutions — Website + Personal Portfolio
+# Ubaid Ur Rahman — Portfolio
 
-Open `index.html` to view the business homepage. Click **Founder Portfolio** to open `portfolio/index.html`, preserving the previous animated personal portfolio, photo, CV, and original certificate evidence.
+## Quick start
+Open `index.html` in your browser. For best results, run with VS Code Live Server or any static web server.
 
-## Business information
-Malik’s Digital Solutions · Main Bazaar, Sherqi, Gurmani, Punjab, Pakistan · +92 349 7322743.
+## Your portrait
+Your supplied portrait is already installed at `assets/profile.jpg`, cropped for the animated hero card.
 
-## Formspree setup
-Create a form at https://formspree.io and replace `mnppjnwd` in **both** `index.html` and `portfolio/index.html` with your real Formspree ID. Until configured, the form shows a setup message rather than claiming messages were sent.
+## Connect Formspree
+1. Create a form at https://formspree.io/ and copy the endpoint, e.g. `https://formspree.io/f/abcdefgh`.
+2. In `index.html`, replace `https://formspree.io/f/mnppjnwd` with your endpoint.
+3. Deploy and submit a test message. The JavaScript sends via fetch and shows success/error feedback. No backend required.
 
-## Important editorial notes
-The business service cards are suggested enquiry categories, not verified promises of specific services or pricing. Review them before publishing. The professional profile is linked to the business site but does not assert a verified owner/founder title. The Google Maps link opens a search for the supplied business name/address; it does not claim a verified pin. Original certificates are preserved without watermark removal or fabrication.
+## Customize
+- Replace the placeholder LinkedIn URL (`https://www.linkedin.com/`) with your profile.
+- Update experience descriptions if your official job duties differ.
+- Update `style.css` theme variables in `:root` to change colors.
+- CV PDF is included in `assets/`.
 
-## Publish
-Upload the entire contents of this folder to Netlify, GitHub Pages, or another static host. Keep the `portfolio` folder intact. No build tools required.
+## Deploy
+Upload the whole folder to Netlify, GitHub Pages, or Vercel. Formspree will work once configured.
 
+## Built with
+HTML5, CSS3, vanilla JavaScript. Responsive, accessible motion preference support, animated particles, tilt cards, typewriter effect, intersection-observer reveals, and AJAX contact form.
 
-## 2026 design refresh
-- Added professional LinkedIn profile: https://www.linkedin.com/in/ubaid-malik-2ab36b353/
-- Upgraded gradients, typography, depth, orbit animations, and focus states.
-- Formspree still requires your real form ID; no submission works until configured.
-
-
-## Formspree connected
-Both business and portfolio contact forms submit to https://formspree.io/f/mnppjnwd. Confirm the recipient email and notifications in Formspree. Host the site online and test a real submission. This package does not itself verify email delivery.
+## Certificate evidence
+The verified Cisco badge and ISC2 certificate are included as original PDFs and image previews. Other courses are text-only until you supply their actual certificates. No fabricated credentials or removed watermarks.
 
 
 ## Active contact form
 The contact form endpoint is already configured: https://formspree.io/f/mnppjnwd. No form ID replacement is required. Ensure Formspree recipient email is verified and test a submission on your hosted site.
-
-
-Hybrid light/dark theme (October 2026): Light content sections and dark 3D hero, reduced particle count. Formspree endpoint https://formspree.io/f/mnppjnwd is active in both sites; please verify delivery with a test submission.
-
-
-2026 design update: Business hero includes a prominent Personal Portfolio link and founder portrait badge. Cisco proof preview is carefully cropped for display (original PDF remains untouched). Formspree endpoint remains mnppjnwd.
