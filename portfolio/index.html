@@ -1,47 +1,648 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ubaid Ur Rahman | CV</title>
+    <meta name="theme-color" content="#07111e" />
+    <title>Ubaid Ur Rahman | Portfolio</title>
     <style>
+      :root {
+        --bg: #07111e;
+        --bg-2: #0d1d31;
+        --panel: rgba(15, 23, 42, 0.82);
+        --panel-2: rgba(18, 28, 45, 0.9);
+        --line: rgba(148, 185, 255, 0.18);
+        --text: #edf6ff;
+        --muted: #a8bad6;
+        --cyan: #5ef3ff;
+        --cyan-2: #7ad4ff;
+        --violet: #a98cff;
+        --gold: #ffd79c;
+        --green: #79f7b6;
+        --shadow: rgba(7, 18, 35, 0.42);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        min-height: 100vh;
+        background:
+          radial-gradient(circle at top right, rgba(169, 140, 255, 0.18), transparent 30%),
+          radial-gradient(circle at center left, rgba(94, 243, 255, 0.12), transparent 25%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: rgba(7, 17, 30, 0.68);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--cyan), var(--violet));
         display: grid;
         place-items: center;
-        background: #08131d;
-        color: #e6f1ff;
-        font-family: Arial, sans-serif;
+        color: #07111e;
+        font-weight: 900;
+        box-shadow: 0 0 22px rgba(94, 243, 255, 0.45);
       }
-      .card {
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid #2dd4bf;
-        border-radius: 16px;
-        padding: 30px 40px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(45, 212, 191, 0.2);
+
+      .brand small {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
-      h1 { margin: 0 0 12px; }
-      p { margin: 0 0 20px; color: #dbeafe; }
-      .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-      a {
-        text-decoration: none;
-        color: white;
-        background: linear-gradient(135deg, #14b8a6, #3b82f6);
-        padding: 12px 20px;
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--cyan), var(--cyan-2));
+        color: #081726;
+        box-shadow: 0 12px 30px rgba(94, 243, 255, 0.25);
+      }
+
+      .btn.secondary {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 88px 0 48px;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .hero-copy h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.8rem, 6vw, 6rem);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+      }
+
+      .hero-copy h1 .accent {
+        background: linear-gradient(135deg, var(--cyan), var(--violet));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .eyebrow {
+        color: var(--cyan);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .hero-copy p {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .hero-card {
+        background: linear-gradient(145deg, rgba(13, 29, 49, 0.9), rgba(18, 31, 52, 0.9));
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 26px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+      }
+
+      .mini-stat {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .mini-stat:last-child { border-bottom: none; }
+
+      .mini-stat strong {
+        color: var(--text);
+        font-size: 1.1rem;
+      }
+
+      .hero-cta-box {
+        margin-top: 26px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        border: 1px solid rgba(94, 243, 255, 0.4);
+        background: rgba(94, 243, 255, 0.05);
+      }
+
+      .hero-cta-box small {
+        display: block;
+        color: var(--cyan);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .hero-cta-box a {
+        color: var(--text);
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .kicker {
+        color: var(--cyan);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .section-head h2 {
+        margin: 10px 0 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.06em;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        max-width: 760px;
+        line-height: 1.9;
+      }
+
+      .services {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .service-card,
+      .project-card,
+      .proof-card,
+      .contact-card {
+        background: rgba(16, 25, 39, 0.8);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+      }
+
+      .service-card h3,
+      .project-card h3,
+      .contact-card h3 {
+        margin-top: 0;
+        font-size: 1.35rem;
+      }
+
+      .service-card p,
+      .project-card p,
+      .contact-card p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--cyan);
+        background: rgba(94, 243, 255, 0.05);
+        font-size: 0.8rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .project-card .meta {
+        margin: 12px 0 16px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+
+      .project-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
         border-radius: 10px;
-        font-weight: 600;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line);
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .proof-card {
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .proof-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .proof-card .caption {
+        padding: 18px 20px 22px;
+        color: var(--muted);
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .contact-card .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .hero-inner,
+        .service-grid,
+        .projects-grid,
+        .contact-wrap,
+        .proof-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav-links {
+          display: none;
+        }
+        .hero-copy h1 {
+          font-size: 2.6rem;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="card">
-      <h1>Ubaid Ur Rahman</h1>
-      <p>Updated CV is available below.</p>
-      <div class="actions">
-        <a href="portfolio/assets/Ubaid_CV_Updated.pdf" target="_blank">Download CV</a>       
-      </div>
-    </div>
+    <header>
+      <nav class="container nav">
+        <div class="brand">
+          <div class="brand-mark">U</div>
+          <div>
+            <span>Ubaid Ur Rahman</span>
+            <small>Cybersecurity & Digital Solutions</small>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Projects</a>
+          <a href="#proof">Credentials</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn primary" href="portfolio/assets/Ubaid_CV_Updated.pdf" target="_blank" rel="noreferrer">
+            Download CV
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow">Ready to contribute</div>
+            <h1>
+              I build <span class="accent">secure digital systems</span>
+              for modern business and learning.
+            </h1>
+            <p>
+              I’m Ubaid Ur Rahman, a cybersecurity-focused professional and digital solutions
+              expert helping businesses, students, and teams with reliable technical support,
+              strategic problem solving, and practical implementation.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="portfolio/assets/Ubaid_CV_Updated.pdf" target="_blank" rel="noreferrer">
+                Download CV
+              </a>
+              <a class="btn secondary" href="#work">View Projects</a>
+            </div>
+
+            <div class="hero-cta-box">
+              <small>Portfolio + CV</small>
+              <a href="https://ubaidportpolio.netlify.app/" target="_blank" rel="noreferrer">
+                Live portfolio website
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="mini-stat">
+              <strong>Location</strong>
+              <span>Sherqi, Gurmani</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Focus</strong>
+              <span>Digital Assistance</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Contact</strong>
+              <span>+92 349 7322743</span>
+            </div>
+            <div class="mini-stat">
+              <strong>GitHub</strong>
+              <span><a href="https://github.com/ubaidmalik-dev" target="_blank" rel="noreferrer">ubaidmalik-dev</a></span>
+            </div>
+            <div class="mini-stat">
+              <strong>LinkedIn</strong>
+              <span><a href="https://linkedin.com/in/ubaid-malik-2ab36b353" target="_blank" rel="noreferrer">Profile</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Services</div>
+            <h2>Technology support that helps people move forward.</h2>
+          </div>
+
+          <div class="service-grid">
+            <div class="service-card">
+              <h3>Digital Solutions</h3>
+              <p>
+                I help clients with modern digital workflows, online presence, troubleshooting,
+                and practical implementation of technology-based systems.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Web Design</span>
+                <span class="pill">Portfolio Setup</span>
+                <span class="pill">Support</span>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <h3>Cybersecurity</h3>
+              <p>
+                I support learners and teams with cybersecurity awareness, certificate preparation,
+                and guided technical practice in areas like network security and digital resilience.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Network Security</span>
+                <span class="pill">Cyber Awareness</span>
+                <span class="pill">Training</span>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <h3>IT & Support</h3>
+              <p>
+                I provide practical digital assistance and troubleshooting for learners, businesses,
+                and individuals who want dependable technical support.
+              </p>
+              <div class="pill-row">
+                <span class="pill">IT Support</span>
+                <span class="pill">System Help</span>
+                <span class="pill">IT Guidance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Projects</div>
+            <h2>Selected work and practical implementations.</h2>
+          </div>
+
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>AI Automation Project</h3>
+              <p class="meta">Deployed with AI-assisted workflows and modern web delivery practices.</p>
+              <p>
+                A practical project focused on automated deployment, rapid iteration, and
+                streamlined delivery for digital work.
+              </p>
+              <div class="project-links">
+                <a href="https://your-live-project-url.com" target="_blank" rel="noreferrer">Live Demo</a>
+                <a href="https://github.com/ubaidmalik-dev" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3>Portfolio Website</h3>
+              <p class="meta">Personal portfolio showcasing expertise, credentials, and work samples.</p>
+              <p>
+                This site highlights my digital solutions work, professional profile, and cybersecurity interest.
+              </p>
+              <div class="project-links">
+                <a href="https://ubaidportpolio.netlify.app/" target="_blank" rel="noreferrer">Live Demo</a>
+                <a href="https://github.com/ubaidmalik-dev/Portpolio" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Credentials</div>
+            <h2>Verified learning and professional evidence.</h2>
+          </div>
+
+          <div class="proof-grid">
+            <div class="proof-card">
+              <img src="cisco-cybersecurity.png" alt="Cisco Cybersecurity certificate" />
+              <div class="caption">
+                Cisco cybersecurity certificate evidence
+              </div>
+            </div>
+
+            <div class="proof-card">
+              <img src="isc2-cc.png" alt="ISC2 CC certificate" />
+              <div class="caption">
+                ISC2 CC certificate evidence
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Contact</div>
+            <h2>Let’s build something useful.</h2>
+          </div>
+
+          <div class="contact-wrap">
+            <div class="contact-card">
+              <h3>Get in touch</h3>
+              <p>
+                If you need digital support, portfolio setup, troubleshooting, training,
+                or cybersecurity guidance, I’m available to help.
+              </p>
+
+              <div class="socials">
+                <a class="social-link" href="https://github.com/ubaidmalik-dev" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="social-link" href="https://linkedin.com/in/ubaid-malik-2ab36b353" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="social-link" href="portfolio/assets/Ubaid_CV_Updated.pdf" target="_blank" rel="noreferrer">Download CV</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <h3>Quick details</h3>
+              <p>Location: Sherqi, Gurmani</p>
+              <p>Phone: +92 349 7322743</p>
+              <p>Email: not provided</p>
+              <p>Website: <a href="https://ubaidportpolio.netlify.app/" target="_blank" rel="noreferrer">ubaidportpolio.netlify.app</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Ubaid Ur Rahman
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
