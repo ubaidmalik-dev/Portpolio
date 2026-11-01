@@ -18,32 +18,31 @@
         background: rgba(15, 23, 42, 0.9);
         border: 1px solid #2dd4bf;
         border-radius: 16px;
-        padding: 32px 40px;
+        padding: 30px 40px;
         text-align: center;
         box-shadow: 0 10px 30px rgba(45, 212, 191, 0.2);
       }
-      h1 {
-        margin-bottom: 12px;
-        font-size: clamp(1.6rem, 2vw, 2.2rem);
-      }
-      p { margin: 0 0 20px; color: #cbd5e1; }
+      h1 { margin: 0 0 12px; }
+      p { margin: 0 0 20px; color: #dbeafe; }
+      .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
       a {
-        display: inline-block;
-        padding: 12px 22px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #14b8a6, #3b82f6);
-        color: white;
         text-decoration: none;
+        color: white;
+        background: linear-gradient(135deg, #14b8a6, #3b82f6);
+        padding: 12px 20px;
+        border-radius: 10px;
         font-weight: 600;
       }
-      a:hover { opacity: 0.95; }
     </style>
   </head>
   <body>
     <div class="card">
       <h1>Ubaid Ur Rahman</h1>
       <p>Updated CV is available below.</p>
-      <a href="assets/Ubaid_CV_Updated.pdf" download="Ubaid_CV_Updated.pdf">Download Updated CV</a>
+      <div class="actions">
+        <a href="assets/Ubaid_CV_Updated.pdf" target="_blank">Open CV</a>
+        <a href="assets/Ubaid_CV_Updated.pdf" download="Ubaid_CV_Updated.pdf">Download Updated CV</a>
+      </div>
     </div>
   </body>
 </html>
